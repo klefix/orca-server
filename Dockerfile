@@ -5,7 +5,7 @@ ARG GH_VERSION=2.102.0
 ARG TARGETARCH
 
 RUN apt-get update \
- && apt-get install -y --no-install-recommends ca-certificates curl git openssh-client tini procps less \
+ && apt-get install -y --no-install-recommends ca-certificates curl git openssh-client tini procps less unzip xz-utils build-essential \
  && curl -fsSL -o /tmp/orca.deb "https://github.com/stablyai/orca/releases/download/v${ORCA_VERSION}/orca-ide_${ORCA_VERSION}_${TARGETARCH}.deb" \
  && curl -fsSL -o /tmp/gh.deb "https://github.com/cli/cli/releases/download/v${GH_VERSION}/gh_${GH_VERSION}_linux_${TARGETARCH}.deb" \
  && apt-get install -y --no-install-recommends /tmp/orca.deb /tmp/gh.deb \
