@@ -1,0 +1,19 @@
+services:
+  orca:
+    image: ghcr.io/klefix/orca-server:1.4.247
+    environment:
+      - ORCA_PAIRING_ADDRESS=172.24.0.50
+    volumes:
+      - orca-home:/home/dev
+    networks:
+      wg:
+        ipv4_address: 172.24.0.50
+    restart: unless-stopped
+
+networks:
+  wg:
+    name: t4w484wc08g0kwwssg004okw
+    external: true
+
+volumes:
+  orca-home:
